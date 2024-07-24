@@ -42,7 +42,9 @@ __meta__ = {
 }
 
 [node name="Pendulum" type="Position2D" parent="Sprite/Liquid"]
+visible = false
 script = ExtResource( 5 )
+damping = 0.98
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
