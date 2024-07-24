@@ -1,9 +1,9 @@
 extends Position2D
 
 # The length of the pendulum.
-export(float) var length = 30
+export(float) var length := 30.0
 # Unrealistic gravity to artificially slow down the movement.
-export(float) var gravity = 24 # 98
+export(float) var gravity := 24.0 # 98
 # Damping factor.
 export(float) var damping = 0.995
 

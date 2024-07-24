@@ -11,19 +11,20 @@
 [sub_resource type="PhysicsMaterial" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
 shader = ExtResource( 6 )
 shader_param/Color = Color( 1, 0, 0, 1 )
 shader_param/SurfaceRotation = null
 shader_param/Fill = 0.6
 shader_param/NoiseScale = 3.0
-shader_param/MinOpacity = 0.5
+shader_param/MinOpacity = 0.7
 shader_param/FillTexture = ExtResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 15 )
+extents = Vector2( 9, 15 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 11, 16 )
+extents = Vector2( 10.625, 15.875 )
 
 [node name="Bottle" type="RigidBody2D"]
 physics_material_override = SubResource( 4 )
@@ -52,6 +53,7 @@ shape = SubResource( 2 )
 [node name="DraggableArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableArea"]
+position = Vector2( -0.375, -0.125 )
 shape = SubResource( 3 )
 
 [connection signal="input_event" from="DraggableArea" to="." method="_on_DraggableArea_input_event"]
