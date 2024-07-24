@@ -728,9 +728,24 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Liquid Bottle Effect"
-run/main_scene="res://src/bottle/bottle.tscn"
+config/name="Shadows And Alchemy"
+config/description="Game for Pirate Software - Game Jam 15."
+run/main_scene="res://src/game.tscn"
 config/icon="res://assets/img/icon.png"
+
+[autoload]
+
+Globals="*res://src/autoload/globals.tscn"
+MouseInputUtil="*res://src/autoload/mouse_input_util.tscn"
+
+[display]
+
+window/size/width=320
+window/size/height=180
+window/size/borderless=true
+window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [physics]
 
