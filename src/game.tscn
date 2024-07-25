@@ -67,6 +67,7 @@ shape = SubResource( 1 )
 
 [node name="Cup" parent="." instance=ExtResource( 1 )]
 position = Vector2( 258, 148 )
+percent_filled = 1.0
 
 [node name="LiquidSpillPos" parent="Cup" index="0"]
 position = Vector2( 0, -4 )
