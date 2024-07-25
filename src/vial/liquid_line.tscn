@@ -11,3 +11,8 @@ width_curve = SubResource( 1 )
 default_color = Color( 1, 0, 0, 1 )
 script = ExtResource( 1 )
 gravity = 500
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

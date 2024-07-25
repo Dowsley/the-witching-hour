@@ -30,6 +30,7 @@ func _process(_delta: float) -> void:
 	if is_pouring and percent_filled > 0.0:
 		if liquid_line == null:
 			liquid_line = preload("res://src/vial/liquid_line.tscn").instance()
+			liquid_line.origin_vial = self
 			LiquidManager.add_liquid_line(liquid_line)
 		var global_spill_pos = global_transform.xform(liquid_spill_pos)
 		liquid_line._add_point(global_spill_pos)

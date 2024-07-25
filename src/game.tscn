@@ -53,15 +53,15 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 320, 180 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Table" type="StaticBody2D" parent="."]
 position = Vector2( 0, 164 )
 
-[node name="Table" type="ColorRect" parent="StaticBody2D"]
+[node name="Table" type="ColorRect" parent="Table"]
 margin_right = 320.0
 margin_bottom = 16.0
 color = Color( 0.631373, 0.4, 0.184314, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
 position = Vector2( 160, 8 )
 shape = SubResource( 1 )
 
