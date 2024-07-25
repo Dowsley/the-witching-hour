@@ -1,22 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://src/bottle/bottle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/vial/vial.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/img/bricks_16b.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/flat_cup.png" type="Texture" id=3]
 [ext_resource path="res://assets/img/flat_cup_mask.png" type="Texture" id=4]
 [ext_resource path="res://assets/resources/liquid.tres" type="Shader" id=5]
-[ext_resource path="res://assets/img/fill.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/fill_flat.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/gin_bottle.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/gin_mask.png" type="Texture" id=9]
 
-[sub_resource type="ShaderMaterial" id=4]
-resource_local_to_scene = true
-shader = ExtResource( 5 )
-shader_param/Color = Color( 1, 0, 0, 1 )
-shader_param/SurfaceRotation = null
-shader_param/Fill = 0.6
-shader_param/NoiseScale = 3.0
-shader_param/MinOpacity = 0.7
-shader_param/FillTexture = ExtResource( 6 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 8 )
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
@@ -34,8 +28,21 @@ extents = Vector2( 6.5, 9.5 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7.3125, 10.5 )
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 160, 8 )
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/Color = Color( 1, 0, 0, 1 )
+shader_param/SurfaceRotation = null
+shader_param/Fill = 0.6
+shader_param/NoiseScale = 3.0
+shader_param/MinOpacity = 0.7
+shader_param/FillTexture = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7.5, 13 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 14 )
 
 [node name="Game" type="Node2D"]
 
@@ -45,30 +52,6 @@ position = Vector2( 160, 90 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 320, 180 )
-
-[node name="Bottle" parent="BrickBG" instance=ExtResource( 1 )]
-position = Vector2( 43, 59 )
-
-[node name="Liquid" parent="BrickBG/Bottle/Sprite" index="0"]
-material = SubResource( 4 )
-
-[node name="Cup" parent="BrickBG" instance=ExtResource( 1 )]
-position = Vector2( 98, 58 )
-
-[node name="Sprite" parent="BrickBG/Cup" index="0"]
-texture = ExtResource( 3 )
-
-[node name="Liquid" parent="BrickBG/Cup/Sprite" index="0"]
-material = SubResource( 5 )
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" parent="BrickBG/Cup" index="1"]
-position = Vector2( -0.5, 6.5 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D" parent="BrickBG/Cup/DraggableArea" index="0"]
-position = Vector2( -0.3125, 6.5 )
-shape = SubResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, 164 )
@@ -82,5 +65,47 @@ color = Color( 0.631373, 0.4, 0.184314, 1 )
 position = Vector2( 160, 8 )
 shape = SubResource( 1 )
 
-[editable path="BrickBG/Bottle"]
-[editable path="BrickBG/Cup"]
+[node name="Cup" parent="." instance=ExtResource( 1 )]
+position = Vector2( 258, 148 )
+
+[node name="LiquidSpillPos" parent="Cup" index="0"]
+position = Vector2( 0, -4 )
+
+[node name="Sprite" parent="Cup" index="1"]
+texture = ExtResource( 3 )
+
+[node name="Liquid" parent="Cup/Sprite" index="0"]
+material = SubResource( 5 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Cup" index="2"]
+position = Vector2( -0.5, 6.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="Cup/DraggableArea" index="0"]
+position = Vector2( -0.3125, 6.5 )
+shape = SubResource( 3 )
+
+[node name="GinBottle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 207, 151 )
+
+[node name="Sprite" parent="GinBottle" index="1"]
+texture = ExtResource( 8 )
+
+[node name="Liquid" parent="GinBottle/Sprite" index="0"]
+material = SubResource( 6 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" parent="GinBottle" index="2"]
+position = Vector2( 0.5, 0 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D" parent="GinBottle/DraggableArea" index="0"]
+visible = false
+shape = SubResource( 8 )
+
+[node name="Vial" parent="." instance=ExtResource( 1 )]
+position = Vector2( 157, 149 )
+
+[editable path="Cup"]
+[editable path="GinBottle"]

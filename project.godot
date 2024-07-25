@@ -12,7 +12,17 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Draggable",
 "language": "GDScript",
-"path": "res://src/types/draggable.gd"
+"path": "res://src/vial/draggable.gd"
+}, {
+"base": "Line2D",
+"class": "LiquidLine",
+"language": "GDScript",
+"path": "res://src/vial/liquid_line.gd"
+}, {
+"base": "Draggable",
+"class": "Vial",
+"language": "GDScript",
+"path": "res://src/vial/vial.gd"
 }, {
 "base": "VisualShaderNodeCustom",
 "class": "VisualShaderNodeCellularNoise2D",
@@ -611,6 +621,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Draggable": "",
+"LiquidLine": "",
+"Vial": "",
 "VisualShaderNodeCellularNoise2D": "",
 "VisualShaderNodeCellularNoise2D_2X2": "",
 "VisualShaderNodeCellularNoise3D": "",
@@ -743,6 +755,7 @@ config/icon="res://assets/img/icon.png"
 
 Globals="*res://src/autoload/globals.tscn"
 MouseInputUtil="*res://src/autoload/mouse_input_util.tscn"
+LiquidManager="*res://src/autoload/liquid_manager.gd"
 
 [display]
 
