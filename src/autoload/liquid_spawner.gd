@@ -1,3 +1,5 @@
+# Liquids need to be spawned in the root tree for absolute coordinates.
+
 extends Node2D
 
 
