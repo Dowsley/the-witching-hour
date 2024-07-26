@@ -1,11 +1,12 @@
-extends Position2D
+extends Marker2D
+
 
 # The length of the pendulum.
-export(float) var length := 30.0
+@export var length := 30.0
 # Unrealistic gravity to artificially slow down the movement.
-export(float) var gravity := 24.0 # 98
+@export var gravity := 24.0 # 98
 # Damping factor.
-export(float) var damping := 0.995
+@export var damping := 0.995
 
 # The current position of the pendulum's weight. 
 var weight_position : Vector2
@@ -18,11 +19,13 @@ var angular_multiplier = 0.0003
 # The current angular velocity.
 var angular_velocity = 0.0
 
+
 func _ready() -> void:
 	previous_global_position = global_position
 	weight_position = global_position + Vector2(length, 0)
 	angle = Vector2.ZERO.angle_to(weight_position - global_position)
 	angular_velocity = 0.0
+
 
 func process_velocity(delta : float) -> void:
 	# Add angular velocity based on x-excentricity.
@@ -43,13 +46,16 @@ func process_velocity(delta : float) -> void:
 	# Store previous global position to add angular velocity in the next frame.
 	previous_global_position = global_position
 
-func add_angular_velocity(force:float) -> void:
+
+func add_angular_velocity(force: float) -> void:
 	angular_velocity += force
 
-func _physics_process(delta) -> void:
+
+func _physics_process(delta: float) -> void:
 	process_velocity(delta)
-	update() # For the draw.
+	queue_redraw()
+
 
 func _draw() -> void:
-	draw_line(Vector2.ZERO, weight_position - global_position, Color.black, 1.0, false)
-	draw_circle(weight_position - global_position, 2.0, Color.red)
+	draw_line(Vector2.ZERO, weight_position - global_position, Color.BLACK, 1.0)
+	draw_circle(weight_position - global_position, 2.0, Color.RED)

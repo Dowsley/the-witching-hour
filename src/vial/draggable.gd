@@ -28,9 +28,8 @@ func _input(event: InputEvent) -> void:
 		drag_object(event)
 
 
-
 # This stops the object from rotating
-func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	state.angular_velocity = 0
 	var new_transform = Transform2D(0, state.transform.origin)
 	state.transform = new_transform
@@ -39,7 +38,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 func release_drag(mouse_button_event: InputEventMouseButton) -> void:
 	previous_mouse_position = Vector2.ZERO
 	is_dragging = false
-	mode = MODE_RIGID
+	freeze = false
 	rotation_degrees = 0
 
 	var local_impulse_point = to_local(mouse_button_event.position).limit_length(5)
@@ -48,8 +47,7 @@ func release_drag(mouse_button_event: InputEventMouseButton) -> void:
 		local_impulse_point.x = -local_impulse_point.x
 
 	var impulse = velocity * 20
-	apply_impulse(local_impulse_point, impulse.limit_length(1000))
-	
+	apply_impulse(impulse.limit_length(1000), local_impulse_point)
 
 
 func drag_object(mouse_motion_event: InputEventMouseMotion) -> void:
@@ -59,10 +57,10 @@ func drag_object(mouse_motion_event: InputEventMouseMotion) -> void:
 	previous_mouse_position = mouse_motion_event.position
 
 
-func _on_DraggableArea_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+func _on_draggable_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if MouseInputUtil.is_left_mouse_button_pressed(event):
 			get_viewport().set_input_as_handled()
 			previous_mouse_position = event.position
 			is_dragging = true
-			mode = MODE_STATIC
+			freeze = true
