@@ -746,7 +746,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Shadows And Alchemy"
+config/name="The Witching Hour"
 config/description="Game for Pirate Software - Game Jam 15."
 run/main_scene="res://src/game.tscn"
 config/icon="res://assets/img/icon.png"
