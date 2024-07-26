@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/img/bottle.png" type="Texture" id=3]
 [ext_resource path="res://src/vial/vial.gd" type="Script" id=4]
 [ext_resource path="res://src/vial/pendulum.gd" type="Script" id=5]
-[ext_resource path="res://assets/resources/liquid.tres" type="Shader" id=6]
+[ext_resource path="res://data/shaders/liquid.tres" type="Shader" id=6]
 [ext_resource path="res://src/vial/liquid.gd" type="Script" id=7]
 
 [sub_resource type="PhysicsMaterial" id=4]
@@ -16,7 +16,7 @@ shader = ExtResource( 6 )
 shader_param/Color = Color( 1, 0, 0, 1 )
 shader_param/SurfaceRotation = null
 shader_param/Fill = 0.6
-shader_param/NoiseScale = 3.0
+shader_param/NoiseScale = 10.0
 shader_param/MinOpacity = 0.7
 shader_param/FillTexture = ExtResource( 1 )
 

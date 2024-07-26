@@ -1,15 +1,19 @@
 extends Line2D
-
 class_name LiquidLine
+
 
 export var line_interval := 0.01
 export var gravity := 1000
 export var initial_velocity := Vector2(200, 0) # Initial horizontal velocity
 export var damping := 0.9                      # Damping factor to reduce horizontal velocity
 
+onready var timer := $Timer
+
+var destruction_sequence_started := false
 var time_since_last_point := 0.0
 var origin_vial
 var velocities = [] # Store velocities of each point
+
 
 func _process(delta: float) -> void:
 	time_since_last_point += delta
@@ -19,7 +23,10 @@ func _process(delta: float) -> void:
 	_remove_invalid_points()
 	
 	if points.size() == 0:
-		$Timer.start()
+		if not destruction_sequence_started:
+			timer.start()
+			destruction_sequence_started = true
+
 
 func _add_point(position: Vector2, inverted := false) -> void:
 	add_point(position)
@@ -28,6 +35,7 @@ func _add_point(position: Vector2, inverted := false) -> void:
 	if inverted:
 		global_velocity = -global_velocity
 	velocities.append(global_velocity)
+
 
 func _update_points(delta: float) -> void:
 	for i in range(get_point_count()):
@@ -40,6 +48,7 @@ func _update_points(delta: float) -> void:
 		# Update the point and velocity
 		set_point_position(i, point)
 		velocities[i] = velocity
+
 
 func _remove_invalid_points() -> void:
 	var visible_points := []
@@ -62,6 +71,7 @@ func _remove_invalid_points() -> void:
 	for point in visible_points:
 		add_point(point)
 
+
 func _collides_with_world(global_point: Vector2) -> Object:
 	var space_state := get_world_2d().direct_space_state
 	var result = space_state.intersect_point(global_point, 1, [], 2147483647, true, false)
@@ -73,6 +83,7 @@ func _collides_with_world(global_point: Vector2) -> Object:
 			break
 	return collider if collider != origin_vial else null
 
+
 func is_valid_vial_collider(collider: Object) -> bool:
 	if not collider.is_in_group("vial"):
 		return false
@@ -81,6 +92,7 @@ func is_valid_vial_collider(collider: Object) -> bool:
 	if collider.percent_filled >= 1.0:
 		return false
 	return true
+
 
 func _on_Timer_timeout() -> void:
 	queue_free()
