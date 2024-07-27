@@ -22,10 +22,8 @@ func _process(_delta: float) -> void:
 	is_pouring = abs(rotation_degrees) >= spill_threshold
 	if is_pouring and percent_filled > 0.0:
 		if liquid_line == null:
-			liquid_line = preload("res://src/vial/liquid_line.tscn").instantiate()
-			liquid_line.origin_vial = self
-			LiquidSpawner.add_liquid_line(liquid_line)
-		var global_spill_pos = global_transform * (liquid_spill_pos)
+			liquid_line = LiquidSpawner.spawn_liquid_line(self)
+		var global_spill_pos := global_transform * (liquid_spill_pos)
 		var inverted := rotation_degrees <= -spill_threshold
 		liquid_line._add_point(global_spill_pos, inverted)
 		percent_filled -= Globals.water_per_liquid_point
@@ -35,7 +33,7 @@ func _process(_delta: float) -> void:
 
 func set_percent_filled(percent: float) -> void:
 	liquid_sprite.material.set_shader_parameter("Fill", percent)
-	
+
 
 func _on_draggable_area_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 	super._on_draggable_area_input_event(viewport, event, shape_idx)

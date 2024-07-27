@@ -3,5 +3,10 @@
 extends Node2D
 
 
-func add_liquid_line(liquid_line: LiquidLine) -> void:
+func spawn_liquid_line(vial: Vial) -> LiquidLine:
+	var liquid_line := preload("res://src/vial/liquid_line.tscn").instantiate()
+	
+	liquid_line.origin_vial = vial
 	add_child(liquid_line)
+	
+	return liquid_line
