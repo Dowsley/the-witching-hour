@@ -1,6 +1,9 @@
 extends RigidBody2D
 class_name Draggable
 
+@export var spill_threshold := 45.0
+@export  var spill_threshold_margin := 30.0
+
 var is_dragging := false
 var previous_mouse_position := Vector2.ZERO
 var velocity := Vector2.ZERO
@@ -23,6 +26,13 @@ func _input(event: InputEvent) -> void:
 			rotation_degrees += 3
 		elif (MouseInputUtil.is_wheel_down_mouse_button_pressed(event)):
 			rotation_degrees -= 3
+			
+	var pos_limit := spill_threshold + spill_threshold_margin
+	var neg_limit := -spill_threshold - spill_threshold_margin
+	if rotation_degrees > pos_limit:
+		rotation_degrees = pos_limit
+	elif rotation_degrees < neg_limit:
+		rotation_degrees = neg_limit
 
 	elif event is InputEventMouseMotion and is_dragging:
 		drag_object(event)

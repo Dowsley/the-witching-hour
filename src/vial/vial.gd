@@ -2,8 +2,7 @@ extends Draggable
 class_name Vial
 
 
-@export var spill_threshold := 45.0
-@export  var spill_threshold_margin := 30.0
+
 @export var percent_filled := 0.6
 
 @onready var liquid_spill_pos: Vector2 = $LiquidSpillPos.position
@@ -19,13 +18,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	set_percent_filled(percent_filled)
-	
-	var pos_limit := spill_threshold + spill_threshold_margin
-	var neg_limit := -spill_threshold - spill_threshold_margin
-	if rotation_degrees > pos_limit:
-		rotation_degrees = pos_limit
-	elif rotation_degrees < neg_limit:
-		rotation_degrees = neg_limit
 	
 	is_pouring = abs(rotation_degrees) >= spill_threshold
 	if is_pouring and percent_filled > 0.0:
