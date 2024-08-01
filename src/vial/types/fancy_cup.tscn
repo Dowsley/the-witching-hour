@@ -26,24 +26,27 @@ size = Vector2(17, 23)
 
 [node name="FancyCup" instance=ExtResource("1_51mau")]
 
-[node name="LiquidSpillPos" parent="." index="0"]
-position = Vector2(0, -4)
+[node name="LiquidSpillPosLeft" parent="." index="0"]
+position = Vector2(-4, -5)
 
-[node name="FancyCupExtraLayer" type="Sprite2D" parent="." index="1"]
+[node name="LiquidSpillPosRight" parent="." index="1"]
+position = Vector2(3, -5)
+
+[node name="FancyCupExtraLayer" type="Sprite2D" parent="." index="2"]
 modulate = Color(1, 1, 1, 0.411765)
 texture = ExtResource("6_syvg2")
 
-[node name="Lineart" type="Sprite2D" parent="." index="2"]
+[node name="Lineart" type="Sprite2D" parent="." index="3"]
 texture = ExtResource("7_vf2hb")
 
-[node name="Sprite2D" parent="." index="3"]
+[node name="Sprite2D" parent="." index="4"]
 texture = ExtResource("2_etus0")
 
 [node name="Liquid" parent="Sprite2D" index="0"]
 material = SubResource("ShaderMaterial_3y08p")
 texture = ExtResource("5_2qpgm")
 
-[node name="CollisionShape2D" parent="." index="4"]
+[node name="CollisionShape2D" parent="." index="5"]
 position = Vector2(-0.5, 5.5)
 shape = SubResource("RectangleShape2D_kbtdi")
 

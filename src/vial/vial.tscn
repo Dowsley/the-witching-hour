@@ -29,9 +29,15 @@ size = Vector2(20, 32)
 [node name="Vial" type="RigidBody2D" groups=["vial"]]
 physics_material_override = SubResource("4")
 script = ExtResource("4")
+percent_filled = null
+spill_threshold = null
+spill_threshold_margin = null
 
-[node name="LiquidSpillPos" type="Marker2D" parent="."]
-position = Vector2(0, -15)
+[node name="LiquidSpillPosLeft" type="Marker2D" parent="."]
+position = Vector2(-3, -15)
+
+[node name="LiquidSpillPosRight" type="Marker2D" parent="."]
+position = Vector2(3, -15)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3")

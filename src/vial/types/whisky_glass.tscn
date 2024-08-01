@@ -24,17 +24,20 @@ size = Vector2(15, 14)
 
 [node name="WhiskyGlass" instance=ExtResource("1_85rhu")]
 
-[node name="LiquidSpillPos" parent="." index="0"]
-position = Vector2(0, 4)
+[node name="LiquidSpillPosLeft" parent="." index="0"]
+position = Vector2(-3, 4)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="LiquidSpillPosRight" parent="." index="1"]
+position = Vector2(2, 4)
+
+[node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_7b4f1")
 
 [node name="Liquid" parent="Sprite2D" index="0"]
 material = SubResource("ShaderMaterial_5t7i4")
 texture = ExtResource("5_m3y6l")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(-0.5, 10)
 shape = SubResource("RectangleShape2D_i0csc")
 
