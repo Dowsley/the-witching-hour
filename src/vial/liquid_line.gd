@@ -61,8 +61,8 @@ func _remove_invalid_points() -> void:
 			visible_points.append(point)
 			visible_velocities.append(velocities[i])
 		elif collided_object.is_in_group("vial"):
-			if collided_object.percent_filled + Globals.water_per_liquid_point > 1.0:
-				collided_object.percent_filled = 1.0
+			if collided_object.percent_filled + Globals.water_per_liquid_point > 100.0:
+				collided_object.percent_filled = 100.0
 			else:
 				collided_object.percent_filled += Globals.water_per_liquid_point
 	

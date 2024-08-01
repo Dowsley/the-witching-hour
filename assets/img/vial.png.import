@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7m62mrdqp3ta"
-path="res://.godot/imported/gin_mask.png-1c5ca1d2a78c72e7641f44a4dcb1491e.ctex"
+uid="uid://cdd3u8v11qks8"
+path="res://.godot/imported/vial.png-09732be6574bc7706b1fc8f4d31990b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/gin_mask.png"
-dest_files=["res://.godot/imported/gin_mask.png-1c5ca1d2a78c72e7641f44a4dcb1491e.ctex"]
+source_file="res://assets/img/vial.png"
+dest_files=["res://.godot/imported/vial.png-09732be6574bc7706b1fc8f4d31990b8.ctex"]
 
 [params]
 

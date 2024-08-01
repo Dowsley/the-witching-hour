@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://b557r2oe0hhki"]
 
-[ext_resource path="res://src/autoload/globals.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://src/autoload/globals.gd" id="1"]
 
 [node name="Globals" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 gravity_scale = 5
 air_resistance = 0.5

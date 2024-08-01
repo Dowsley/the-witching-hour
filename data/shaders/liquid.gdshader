@@ -2,7 +2,7 @@ shader_type canvas_item;
 uniform vec4 Color : source_color;
 uniform float SurfaceRotation;
 uniform float Fill;
-uniform sampler2D FillTexture;
+uniform sampler2D FillTexture : filter_nearest;
 uniform float NoiseScale;
 uniform float MinOpacity;
 

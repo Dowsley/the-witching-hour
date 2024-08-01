@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baxbw7hv0a1e"
-path="res://.godot/imported/gin_bottle.png-4fcd40e2f07a56bc2a4e030e31ea082a.ctex"
+uid="uid://7m62mrdqp3ta"
+path="res://.godot/imported/bottle_mask.png-a5c02448ddd6ec762ad421faf8dc9da9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/gin_bottle.png"
-dest_files=["res://.godot/imported/gin_bottle.png-4fcd40e2f07a56bc2a4e030e31ea082a.ctex"]
+source_file="res://assets/img/bottle_mask.png"
+dest_files=["res://.godot/imported/bottle_mask.png-a5c02448ddd6ec762ad421faf8dc9da9.ctex"]
 
 [params]
 

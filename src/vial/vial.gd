@@ -2,8 +2,7 @@ extends Draggable
 class_name Vial
 
 
-
-@export var percent_filled := 0.6
+@export var percent_filled := 60.0
 
 @onready var liquid_spill_pos: Vector2 = $LiquidSpillPos.position
 @onready var liquid_sprite := $Sprite2D/Liquid
@@ -14,6 +13,7 @@ var liquid_line: LiquidLine = null
 
 func _ready() -> void:
 	set_percent_filled(percent_filled)
+	$DraggableArea/CollisionShape2D.visible = false
 
 
 func _process(_delta: float) -> void:
@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 
 
 func set_percent_filled(percent: float) -> void:
-	liquid_sprite.material.set_shader_parameter("Fill", percent)
+	liquid_sprite.material.set_shader_parameter("Fill", percent / 100)
 
 
 func _on_draggable_area_input_event(viewport: Node, event: InputEvent, shape_idx: int):
