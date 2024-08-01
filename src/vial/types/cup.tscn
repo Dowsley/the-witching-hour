@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bayjex68vwmdh"]
+[gd_scene load_steps=10 format=3 uid="uid://bayjex68vwmdh"]
 
 [ext_resource type="PackedScene" uid="uid://dufoyugceah2k" path="res://src/vial/vial.tscn" id="1_id72q"]
-[ext_resource type="Texture2D" uid="uid://vfa3awhrcelw" path="res://assets/img/flat_cup.png" id="2_7jw17"]
 [ext_resource type="Shader" path="res://data/shaders/liquid.gdshader" id="2_jlhxf"]
+[ext_resource type="Texture2D" uid="uid://vfa3awhrcelw" path="res://assets/img/cup/flat_cup.png" id="2_t6wbk"]
 [ext_resource type="Texture2D" uid="uid://hlyyxjvct00c" path="res://assets/img/fill_flat.png" id="4_ipcom"]
-[ext_resource type="Texture2D" uid="uid://bpkxwo1k7xiek" path="res://assets/img/flat_cup_mask.png" id="5_gb4yw"]
+[ext_resource type="Texture2D" uid="uid://bpkxwo1k7xiek" path="res://assets/img/cup/flat_cup_mask.png" id="5_m0jex"]
+[ext_resource type="Texture2D" uid="uid://bvvf06kahft6k" path="res://assets/img/fancy_cup/fancy_cup_extra_layer.png" id="6_tgo5i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k40qh"]
 resource_local_to_scene = true
@@ -27,18 +28,22 @@ size = Vector2(15, 20.5)
 [node name="LiquidSpillPos" parent="." index="0"]
 position = Vector2(0, -3)
 
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_7jw17")
+[node name="FancyCupExtraLayer" type="Sprite2D" parent="." index="1"]
+modulate = Color(1, 1, 1, 0.321569)
+position = Vector2(0, 1)
+texture = ExtResource("6_tgo5i")
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_t6wbk")
 
 [node name="Liquid" parent="Sprite2D" index="0"]
 material = SubResource("ShaderMaterial_k40qh")
-texture = ExtResource("5_gb4yw")
+texture = ExtResource("5_m0jex")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(-0.5, 6.5)
 shape = SubResource("RectangleShape2D_lo52q")
 
 [node name="CollisionShape2D" parent="DraggableArea" index="0"]
-visible = false
 position = Vector2(-0.5, 6.75)
 shape = SubResource("RectangleShape2D_o8odo")

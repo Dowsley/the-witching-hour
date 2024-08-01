@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baxbw7hv0a1e"
-path="res://.godot/imported/bottle.png-eec14230cff3c01973a339303d3b8459.ctex"
+uid="uid://q1wt2hggprxt"
+path="res://.godot/imported/fancy_whisky_glass_lineart.png-332bf1eb0bde72a2585413e7b724c82e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/bottle.png"
-dest_files=["res://.godot/imported/bottle.png-eec14230cff3c01973a339303d3b8459.ctex"]
+source_file="res://assets/img/fancy_whisky_glass/fancy_whisky_glass_lineart.png"
+dest_files=["res://.godot/imported/fancy_whisky_glass_lineart.png-332bf1eb0bde72a2585413e7b724c82e.ctex"]
 
 [params]
 

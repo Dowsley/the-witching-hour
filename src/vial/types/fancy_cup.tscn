@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://r4hwt85d6url"]
+
+[ext_resource type="PackedScene" uid="uid://dufoyugceah2k" path="res://src/vial/vial.tscn" id="1_51mau"]
+[ext_resource type="Texture2D" uid="uid://bk58b4h5bvlgm" path="res://assets/img/fancy_cup/fancy_cup_base.png" id="2_etus0"]
+[ext_resource type="Shader" path="res://data/shaders/liquid.gdshader" id="2_xfok2"]
+[ext_resource type="Texture2D" uid="uid://hlyyxjvct00c" path="res://assets/img/fill_flat.png" id="4_j6r2d"]
+[ext_resource type="Texture2D" uid="uid://dwclkj1fvahem" path="res://assets/img/fancy_cup/fancy_cup_mask.png" id="5_2qpgm"]
+[ext_resource type="Texture2D" uid="uid://bvvf06kahft6k" path="res://assets/img/fancy_cup/fancy_cup_extra_layer.png" id="6_syvg2"]
+[ext_resource type="Texture2D" uid="uid://cavc0ckb51axn" path="res://assets/img/fancy_cup/lineart.png" id="7_vf2hb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3y08p"]
+resource_local_to_scene = true
+shader = ExtResource("2_xfok2")
+shader_parameter/Color = Color(1, 0, 0, 1)
+shader_parameter/SurfaceRotation = null
+shader_parameter/Fill = 0.6
+shader_parameter/NoiseScale = 10.0
+shader_parameter/MinOpacity = 0.7
+shader_parameter/FillTexture = ExtResource("4_j6r2d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbtdi"]
+size = Vector2(15, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxx4x"]
+size = Vector2(17, 23)
+
+[node name="FancyCup" instance=ExtResource("1_51mau")]
+
+[node name="LiquidSpillPos" parent="." index="0"]
+position = Vector2(0, -4)
+
+[node name="FancyCupExtraLayer" type="Sprite2D" parent="." index="1"]
+modulate = Color(1, 1, 1, 0.411765)
+texture = ExtResource("6_syvg2")
+
+[node name="Lineart" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("7_vf2hb")
+
+[node name="Sprite2D" parent="." index="3"]
+texture = ExtResource("2_etus0")
+
+[node name="Liquid" parent="Sprite2D" index="0"]
+material = SubResource("ShaderMaterial_3y08p")
+texture = ExtResource("5_2qpgm")
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2(-0.5, 5.5)
+shape = SubResource("RectangleShape2D_kbtdi")
+
+[node name="CollisionShape2D" parent="DraggableArea" index="0"]
+position = Vector2(-0.5, 5.5)
+shape = SubResource("RectangleShape2D_yxx4x")

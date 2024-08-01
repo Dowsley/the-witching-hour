@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7m62mrdqp3ta"
-path="res://.godot/imported/bottle_mask.png-a5c02448ddd6ec762ad421faf8dc9da9.ctex"
+uid="uid://bvvf06kahft6k"
+path="res://.godot/imported/fancy_cup_extra_layer.png-37733d287a1b4c41f512f6aa4faa9b7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/bottle_mask.png"
-dest_files=["res://.godot/imported/bottle_mask.png-a5c02448ddd6ec762ad421faf8dc9da9.ctex"]
+source_file="res://assets/img/fancy_cup/fancy_cup_extra_layer.png"
+dest_files=["res://.godot/imported/fancy_cup_extra_layer.png-37733d287a1b4c41f512f6aa4faa9b7c.ctex"]
 
 [params]
 

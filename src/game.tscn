@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://duntd7q6i6x1y"]
+[gd_scene load_steps=8 format=3 uid="uid://duntd7q6i6x1y"]
 
-[ext_resource type="PackedScene" uid="uid://dufoyugceah2k" path="res://src/vial/vial.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://bpd58bscflavh" path="res://assets/img/bricks_16b.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://c8t88wgrdp46q" path="res://src/vial/types/bottle.tscn" id="4_6fgsh"]
+[ext_resource type="PackedScene" uid="uid://bwyqluubv5hca" path="res://src/vial/types/whisky_glass.tscn" id="4_u0sqo"]
+[ext_resource type="PackedScene" uid="uid://r4hwt85d6url" path="res://src/vial/types/fancy_cup.tscn" id="5_cvqp8"]
 [ext_resource type="PackedScene" uid="uid://bayjex68vwmdh" path="res://src/vial/types/cup.tscn" id="5_wmhxr"]
+[ext_resource type="PackedScene" uid="uid://c7dupmydh0sun" path="res://src/vial/types/fancy_whisky_glass.tscn" id="6_74dar"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(320, 16)
@@ -32,11 +34,23 @@ region_rect = Rect2(0, 0, 320, 16)
 position = Vector2(160, 8)
 shape = SubResource("1")
 
-[node name="Vial" parent="." instance=ExtResource("1")]
-position = Vector2(115, 149)
-
 [node name="Cup" parent="." instance=ExtResource("5_wmhxr")]
-position = Vector2(209, 148)
+position = Vector2(204, 148)
 
 [node name="Bottle" parent="." instance=ExtResource("4_6fgsh")]
-position = Vector2(163, 151)
+position = Vector2(170, 151)
+
+[node name="Bottle2" parent="." instance=ExtResource("4_6fgsh")]
+position = Vector2(144, 151)
+
+[node name="Bottle3" parent="." instance=ExtResource("4_6fgsh")]
+position = Vector2(119, 151)
+
+[node name="WhiskyGlass" parent="." instance=ExtResource("4_u0sqo")]
+position = Vector2(226, 148)
+
+[node name="FancyCup" parent="." instance=ExtResource("5_cvqp8")]
+position = Vector2(249, 148)
+
+[node name="FancyWhiskyGlass" parent="." instance=ExtResource("6_74dar")]
+position = Vector2(270, 148)

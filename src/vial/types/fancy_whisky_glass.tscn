@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7dupmydh0sun"]
+
+[ext_resource type="PackedScene" uid="uid://dufoyugceah2k" path="res://src/vial/vial.tscn" id="1_8pf84"]
+[ext_resource type="Texture2D" uid="uid://d2gsdjq5qlqd1" path="res://assets/img/fancy_whisky_glass/fancy_whisky_glass_base.png" id="2_poxhj"]
+[ext_resource type="Shader" path="res://data/shaders/liquid.gdshader" id="2_yxh4e"]
+[ext_resource type="Texture2D" uid="uid://hlyyxjvct00c" path="res://assets/img/fill_flat.png" id="4_j32gd"]
+[ext_resource type="Texture2D" uid="uid://dpt6vamkrwb7y" path="res://assets/img/fancy_whisky_glass/fancy_whisky_glass_mask.png" id="5_ut0jm"]
+[ext_resource type="Texture2D" uid="uid://q1wt2hggprxt" path="res://assets/img/fancy_whisky_glass/fancy_whisky_glass_lineart.png" id="6_b2op6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lg8rn"]
+resource_local_to_scene = true
+shader = ExtResource("2_yxh4e")
+shader_parameter/Color = Color(1, 0, 0, 1)
+shader_parameter/SurfaceRotation = null
+shader_parameter/Fill = 0.6
+shader_parameter/NoiseScale = 10.0
+shader_parameter/MinOpacity = 0.7
+shader_parameter/FillTexture = ExtResource("4_j32gd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y4mm"]
+size = Vector2(14, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a7s0"]
+size = Vector2(16, 14)
+
+[node name="FancyWhiskyGlass" instance=ExtResource("1_8pf84")]
+
+[node name="LiquidSpillPos" parent="." index="0"]
+position = Vector2(0, 4)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_poxhj")
+
+[node name="Liquid" parent="Sprite2D" index="0"]
+material = SubResource("ShaderMaterial_lg8rn")
+texture = ExtResource("5_ut0jm")
+
+[node name="FancyWhiskyGlassLineart" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("6_b2op6")
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_8y4mm")
+
+[node name="CollisionShape2D" parent="DraggableArea" index="0"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_7a7s0")

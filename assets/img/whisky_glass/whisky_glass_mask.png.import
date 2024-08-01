@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpkxwo1k7xiek"
-path="res://.godot/imported/flat_cup_mask.png-c73b437049f5034d4345ef261ed807ee.ctex"
+uid="uid://b3mx7duc02d0"
+path="res://.godot/imported/whisky_glass_mask.png-fed9b32b2ff7f35c296f188e8c8d311e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/flat_cup_mask.png"
-dest_files=["res://.godot/imported/flat_cup_mask.png-c73b437049f5034d4345ef261ed807ee.ctex"]
+source_file="res://assets/img/whisky_glass/whisky_glass_mask.png"
+dest_files=["res://.godot/imported/whisky_glass_mask.png-fed9b32b2ff7f35c296f188e8c8d311e.ctex"]
 
 [params]
 

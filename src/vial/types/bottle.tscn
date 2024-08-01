@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://c8t88wgrdp46q"]
 
 [ext_resource type="PackedScene" uid="uid://dufoyugceah2k" path="res://src/vial/vial.tscn" id="1_dwmoc"]
-[ext_resource type="Texture2D" uid="uid://baxbw7hv0a1e" path="res://assets/img/bottle.png" id="2_hvlmu"]
+[ext_resource type="Texture2D" uid="uid://baxbw7hv0a1e" path="res://assets/img/bottle/bottle.png" id="2_hvlmu"]
 [ext_resource type="Shader" path="res://data/shaders/liquid.gdshader" id="3_egb8h"]
 [ext_resource type="Texture2D" uid="uid://bvbhhgdeiik5f" path="res://assets/img/fill.png" id="4_k2v26"]
-[ext_resource type="Texture2D" uid="uid://7m62mrdqp3ta" path="res://assets/img/bottle_mask.png" id="5_vy7jj"]
+[ext_resource type="Texture2D" uid="uid://7m62mrdqp3ta" path="res://assets/img/bottle/bottle_mask.png" id="5_vy7jj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53ap7"]
 resource_local_to_scene = true
