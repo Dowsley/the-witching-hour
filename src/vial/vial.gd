@@ -2,7 +2,7 @@ extends Draggable
 class_name Vial
 
 
-@export var percent_filled := 60.0
+@export var percent_filled: float = 60.0
 
 @onready var liquid_spill_pos_left: Vector2 = $LiquidSpillPosLeft.position
 @onready var liquid_spill_pos_right: Vector2 = $LiquidSpillPosRight.position
