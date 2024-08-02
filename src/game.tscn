@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://duntd7q6i6x1y"]
+[gd_scene load_steps=6 format=3 uid="uid://duntd7q6i6x1y"]
 
 [ext_resource type="Texture2D" uid="uid://bpd58bscflavh" path="res://assets/img/bricks_16b.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://c8t88wgrdp46q" path="res://src/vial/types/bottle.tscn" id="4_6fgsh"]
 [ext_resource type="PackedScene" uid="uid://bwyqluubv5hca" path="res://src/vial/types/whisky_glass.tscn" id="4_u0sqo"]
-[ext_resource type="PackedScene" path="res://src/vial/types/fancy_cup.tscn" id="5_cvqp8"]
 [ext_resource type="PackedScene" uid="uid://bayjex68vwmdh" path="res://src/vial/types/cup.tscn" id="5_wmhxr"]
-[ext_resource type="PackedScene" uid="uid://c7dupmydh0sun" path="res://src/vial/types/fancy_whisky_glass.tscn" id="6_74dar"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(320, 16)
@@ -34,44 +32,29 @@ region_rect = Rect2(0, 0, 320, 16)
 position = Vector2(160, 8)
 shape = SubResource("1")
 
+[node name="GinBottle" parent="." instance=ExtResource("4_6fgsh")]
+position = Vector2(31, 151)
+filled_with = {
+"Gin": 1000
+}
+
+[node name="SyrupBottle" parent="." instance=ExtResource("4_6fgsh")]
+position = Vector2(53, 151)
+filled_with = {
+"Syrup": 1000
+}
+
+[node name="ManaBottle" parent="." instance=ExtResource("4_6fgsh")]
+position = Vector2(74, 151)
+filled_with = {
+"Mana": 1000
+}
+
 [node name="Cup" parent="." instance=ExtResource("5_wmhxr")]
 position = Vector2(204, 148)
-percent_filled = 60.0
-spill_threshold = 45.0
-spill_threshold_margin = 30.0
-
-[node name="Bottle" parent="." instance=ExtResource("4_6fgsh")]
-position = Vector2(170, 151)
-percent_filled = 60.0
-spill_threshold = 45.0
-spill_threshold_margin = 30.0
-
-[node name="Bottle2" parent="." instance=ExtResource("4_6fgsh")]
-position = Vector2(144, 151)
-percent_filled = 60.0
-spill_threshold = 45.0
-spill_threshold_margin = 30.0
-
-[node name="Bottle3" parent="." instance=ExtResource("4_6fgsh")]
-position = Vector2(119, 151)
-percent_filled = 60.0
-spill_threshold = 45.0
-spill_threshold_margin = 30.0
+scale = Vector2(1, 0.961726)
+filled_with = {}
 
 [node name="WhiskyGlass" parent="." instance=ExtResource("4_u0sqo")]
-position = Vector2(226, 148)
-percent_filled = 60.0
-spill_threshold = 45.0
-spill_threshold_margin = 30.0
-
-[node name="FancyCup" parent="." instance=ExtResource("5_cvqp8")]
-position = Vector2(249, 148)
-percent_filled = 60.0
-spill_threshold = 45.0
-spill_threshold_margin = 30.0
-
-[node name="FancyWhiskyGlass" parent="." instance=ExtResource("6_74dar")]
-position = Vector2(270, 148)
-percent_filled = 60.0
-spill_threshold = 45.0
-spill_threshold_margin = 30.0
+position = Vector2(165, 148)
+filled_with = {}

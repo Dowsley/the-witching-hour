@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LiquidTypeDefinition" load_steps=2 format=3 uid="uid://hi7sel5t82oo"]
+
+[ext_resource type="Script" path="res://src/definitions/liquid_type_definition.gd" id="1_b1xbq"]
+
+[resource]
+script = ExtResource("1_b1xbq")
+name = "Mana"
+color = Color(0, 0, 1, 1)

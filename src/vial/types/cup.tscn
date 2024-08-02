@@ -44,6 +44,7 @@ material = SubResource("ShaderMaterial_k40qh")
 texture = ExtResource("5_m0jex")
 
 [node name="CollisionShape2D" parent="." index="4"]
+visible = false
 position = Vector2(-0.5, 6.5)
 shape = SubResource("RectangleShape2D_lo52q")
 
