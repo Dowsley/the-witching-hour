@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 		var chosen_liquid_type_name := choose_random_liquid_in_container()
 		liquid_line.liquid_type = chosen_liquid_type_name
 		liquid_line.default_color = compute_liquid_color()
-		remove_liquid(chosen_liquid_type_name, Globals.unit_per_liquid_line_point)
+		remove_liquid(chosen_liquid_type_name, Globals.units_per_liquid_line_point)
 	else:
 		liquid_line = null
 

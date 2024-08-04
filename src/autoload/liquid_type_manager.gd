@@ -28,5 +28,5 @@ func load_liquid_types(directory_path: String) -> void:
 		assert(false, "Failed to open directory: " + directory_path)
 
 
-func get_liquid_type(name: String) -> LiquidTypeDefinition:
-	return liquid_type_map[name]
+func get_liquid_type(liquid_name: String) -> LiquidTypeDefinition:
+	return liquid_type_map[liquid_name]
