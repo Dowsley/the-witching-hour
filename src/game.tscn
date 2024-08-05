@@ -62,3 +62,8 @@ filled_with = {}
 
 [node name="Vial" parent="." instance=ExtResource("5_78m6n")]
 position = Vector2(233, 149)
+debug = true
+filled_with = {
+"Gin": 500,
+"Mana": 500
+}

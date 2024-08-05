@@ -2,6 +2,7 @@ extends Draggable
 class_name Vial
 
 
+@export var debug := false
 @export var max_units_capacity := 1000
 @export var filled_with := {
 	"Gin": 500
@@ -34,7 +35,7 @@ func _process(_delta: float) -> void:
 		var inverted := rotation_degrees <= -spill_threshold
 		liquid_line._add_point(global_spill_pos, inverted)
 		var chosen_liquid_type_name := choose_random_liquid_in_container()
-		liquid_line.liquid_type = chosen_liquid_type_name
+		liquid_line.liquid_type = chosen_liquid_type_name # TODO This is the problem! I cant switch liquid type in the line.
 		liquid_line.default_color = compute_liquid_color()
 		remove_liquid(chosen_liquid_type_name, Globals.units_per_liquid_line_point)
 	else:
@@ -85,6 +86,8 @@ func choose_random_liquid_in_container() -> String:
 	
 	var chosen: String = keys[_current_liquid_index]
 	_current_liquid_index += 1
+	if _current_liquid_index >= keys.size():
+		_current_liquid_index = 0
 	return chosen
 
 
