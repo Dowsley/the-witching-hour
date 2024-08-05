@@ -12,8 +12,8 @@ class_name LiquidLine
 var destruction_sequence_started := false
 var time_since_last_point := 0.0
 var velocities := [] # Store velocities of each point
-var origin_vial: Vial
 
+var origin_vial: Vial
 var liquid_type: String
 
 

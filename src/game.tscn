@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://duntd7q6i6x1y"]
+[gd_scene load_steps=7 format=3 uid="uid://duntd7q6i6x1y"]
 
 [ext_resource type="Texture2D" uid="uid://bpd58bscflavh" path="res://assets/img/bricks_16b.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://c8t88wgrdp46q" path="res://src/vial/types/bottle.tscn" id="4_6fgsh"]
 [ext_resource type="PackedScene" uid="uid://bwyqluubv5hca" path="res://src/vial/types/whisky_glass.tscn" id="4_u0sqo"]
+[ext_resource type="PackedScene" uid="uid://dufoyugceah2k" path="res://src/vial/vial.tscn" id="5_78m6n"]
 [ext_resource type="PackedScene" uid="uid://bayjex68vwmdh" path="res://src/vial/types/cup.tscn" id="5_wmhxr"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -56,5 +57,8 @@ scale = Vector2(1, 0.961726)
 filled_with = {}
 
 [node name="WhiskyGlass" parent="." instance=ExtResource("4_u0sqo")]
-position = Vector2(165, 148)
+position = Vector2(171, 148)
 filled_with = {}
+
+[node name="Vial" parent="." instance=ExtResource("5_78m6n")]
+position = Vector2(233, 149)
