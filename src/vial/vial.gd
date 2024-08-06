@@ -33,9 +33,8 @@ func _process(_delta: float) -> void:
 			liquid_line = LiquidSpawner.spawn_liquid_line(self)
 		var global_spill_pos := global_transform * (liquid_spill_pos)
 		var inverted := rotation_degrees <= -spill_threshold
-		liquid_line._add_point(global_spill_pos, inverted)
 		var chosen_liquid_type_name := choose_random_liquid_in_container()
-		liquid_line.liquid_type = chosen_liquid_type_name # TODO This is the problem! I cant switch liquid type in the line.
+		liquid_line._add_point(global_spill_pos, chosen_liquid_type_name, inverted)
 		liquid_line.default_color = compute_liquid_color()
 		remove_liquid(chosen_liquid_type_name, Globals.units_per_liquid_line_point)
 	else:

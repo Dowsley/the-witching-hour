@@ -12,9 +12,9 @@ class_name LiquidLine
 var destruction_sequence_started := false
 var time_since_last_point := 0.0
 var velocities := [] # Store velocities of each point
+var liquid_types := [] # Store liquid type of each point
 
 var origin_vial: Vial
-var liquid_type: String
 
 
 func _process(delta: float) -> void:
@@ -30,13 +30,14 @@ func _process(delta: float) -> void:
 			destruction_sequence_started = true
 
 
-func _add_point(pos: Vector2, inverted := false) -> void:
+func _add_point(pos: Vector2, liquid_type: String, inverted := false) -> void:
 	add_point(pos)
 	# Calculate the initial velocity in global coordinates
 	var global_velocity = origin_vial.global_transform.basis_xform(initial_velocity)
 	if inverted:
 		global_velocity = -global_velocity
 	velocities.append(global_velocity)
+	liquid_types.append(liquid_type)
 
 
 func _update_points(delta: float) -> void:
@@ -55,6 +56,7 @@ func _update_points(delta: float) -> void:
 func _remove_invalid_points() -> void:
 	var visible_points := []
 	var visible_velocities := []
+	var visible_liquid_types := []
 	for i in range(get_point_count()):
 		var point := get_point_position(i)
 		var global_point := to_global(point)
@@ -62,11 +64,13 @@ func _remove_invalid_points() -> void:
 		if not collided_object:
 			visible_points.append(point)
 			visible_velocities.append(velocities[i])
+			visible_liquid_types.append(liquid_types[i])
 		elif collided_object.is_in_group("vial"):
-			collided_object.add_liquid(liquid_type, Globals.units_per_liquid_line_point)
+			collided_object.add_liquid(liquid_types[i], Globals.units_per_liquid_line_point)
 	
 	clear_points()
 	velocities = visible_velocities
+	liquid_types = visible_liquid_types
 	for point in visible_points:
 		add_point(point)
 
@@ -82,7 +86,7 @@ func _collides_with_world(global_point: Vector2) -> Object:
 	var collider: Object = null
 	for r in result:
 		collider = r.collider
-		if is_valid_vial_collider(collider): # Can't be itself if it's not pouring.
+		if is_valid_vial_collider(collider):
 			break
 	return collider if collider != origin_vial else null
 
