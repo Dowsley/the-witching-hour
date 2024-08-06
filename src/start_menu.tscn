@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgxopk0mtstqw"]
+
+[ext_resource type="Script" path="res://src/start_menu.gd" id="1_qr2qq"]
+[ext_resource type="PackedScene" uid="uid://duntd7q6i6x1y" path="res://src/game.tscn" id="2_lcor2"]
+[ext_resource type="Texture2D" uid="uid://wilx1tmooih5" path="res://assets/img/start_menu/bg.png" id="3_63m8f"]
+[ext_resource type="Texture2D" uid="uid://cixcyplm5s21i" path="res://assets/img/start_menu/press.png" id="4_84sqb"]
+[ext_resource type="Texture2D" uid="uid://bhtgnde264ju2" path="res://assets/img/start_menu/title.png" id="5_yfwev"]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_qr2qq")
+main_game_scene = ExtResource("2_lcor2")
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture = ExtResource("3_63m8f")
+centered = false
+
+[node name="Press" type="Sprite2D" parent="."]
+texture = ExtResource("4_84sqb")
+centered = false
+
+[node name="Title" type="Sprite2D" parent="."]
+texture = ExtResource("5_yfwev")
+centered = false
