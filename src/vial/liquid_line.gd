@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 			destruction_sequence_started = true
 
 
-func _add_point(pos: Vector2, liquid_type: String, inverted := false) -> void:
+func _add_point(pos: Vector2, liquid_type: StringName, inverted := false) -> void:
 	add_point(pos)
 	# Calculate the initial velocity in global coordinates
 	var global_velocity = origin_vial.global_transform.basis_xform(initial_velocity)

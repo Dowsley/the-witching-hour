@@ -8,7 +8,7 @@ func _ready() -> void:
 	load_liquid_types("res://data/definitions/liquids/")
 
 
-func load_liquid_types(directory_path: String) -> void:
+func load_liquid_types(directory_path: StringName) -> void:
 	var dir = DirAccess.open(directory_path)
 	if dir:
 		dir.list_dir_begin()
@@ -28,5 +28,5 @@ func load_liquid_types(directory_path: String) -> void:
 		assert(false, "Failed to open directory: " + directory_path)
 
 
-func get_liquid_type(liquid_name: String) -> LiquidTypeDefinition:
+func get_liquid_type(liquid_name: StringName) -> LiquidTypeDefinition:
 	return liquid_type_map[liquid_name]

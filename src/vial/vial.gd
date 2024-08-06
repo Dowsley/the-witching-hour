@@ -76,7 +76,7 @@ func draw_liquid() -> void:
 	liquid_sprite.material.set_shader_parameter("Fill", get_percent_filled())
 
 
-func choose_random_liquid_in_container() -> String:
+func choose_random_liquid_in_container() -> StringName:
 	var total_units := get_total_units()
 	if total_units == 0:
 		return ""
@@ -92,14 +92,14 @@ func choose_random_liquid_in_container() -> String:
 	return filled_with.keys()[0]
 
 
-func remove_liquid(type: String, amount: int) -> void:
+func remove_liquid(type: StringName, amount: int) -> void:
 	assert(filled_with.has(type), "Dictionary has no key with entry " + type)
 	filled_with[type] -= amount
 	if filled_with[type] <= 0:
 		filled_with.erase(type)
 
 
-func add_liquid(type: String, amount: int) -> void:
+func add_liquid(type: StringName, amount: int) -> void:
 	if not filled_with.has(type):
 		filled_with[type] = 0
 	filled_with[type] += amount
