@@ -16,8 +16,6 @@ var is_pouring := false
 var liquid_line: LiquidLine = null
 var liquid_spill_pos: Vector2
 
-var _current_liquid_index := 0
-
 
 func _ready() -> void:
 	draw_liquid()
@@ -79,15 +77,19 @@ func draw_liquid() -> void:
 
 
 func choose_random_liquid_in_container() -> String:
-	var keys := filled_with.keys()
-	keys.sort()
-	_current_liquid_index = min(_current_liquid_index, keys.size()-1)
-	
-	var chosen: String = keys[_current_liquid_index]
-	_current_liquid_index += 1
-	if _current_liquid_index >= keys.size():
-		_current_liquid_index = 0
-	return chosen
+	var total_units := get_total_units()
+	if total_units == 0:
+		return ""
+
+	var rand_value := randi() % total_units
+	var accumulated_weight := 0
+
+	for liquid_type in filled_with.keys():
+		accumulated_weight += filled_with[liquid_type]
+		if rand_value < accumulated_weight:
+			return liquid_type
+
+	return filled_with.keys()[0]
 
 
 func remove_liquid(type: String, amount: int) -> void:
